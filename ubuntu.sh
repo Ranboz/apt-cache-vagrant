@@ -6,7 +6,9 @@ set -eux
 # see http://10.10.10.3:3142
 
 echo 'Acquire::http::Proxy "http://10.10.10.3:3142";' >/etc/apt/apt.conf.d/00aptproxy
-
+sudo echo 'Acquire::HTTPS::Proxy "false";' >> /etc/apt/apt.conf.d/00aptproxy
+#If downloading from oracle
+sudo echo 'Acquire::http::Proxy {download.oracle.com DIRECT;};' >> /etc/apt/apt.conf.d/00aptproxy
 
 #
 # use APT to see it using our APT proxy. 
