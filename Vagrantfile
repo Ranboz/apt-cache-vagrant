@@ -5,6 +5,8 @@ Vagrant.configure('2') do |config|
     vb.linked_clone = true
     vb.memory = 256
     vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
+    # Disable Remote Desktop Server
+    vb.customize ["modifyvm", :id, "--vrde", "off"]
   end
 
   config.vm.define :cache do |config|
