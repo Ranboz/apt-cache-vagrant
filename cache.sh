@@ -18,6 +18,10 @@ apt-get install -y --no-install-recommends apt-cacher-ng
 sed -i -E 's,^(Remap-.+),#\1,' /etc/apt-cacher-ng/acng.conf 
 sed -i -E 's,^#(Remap-uburep.+),\1,' /etc/apt-cacher-ng/acng.conf
 
+#added by RB
+echo "PassThroughPattern: apt\.repo\.example:443$" >> /etc/apt-cacher-ng/acng.conf
+
+
 # set the APT mirror that apt-cacher-ng uses.
 echo 'http://nl.archive.ubuntu.com/ubuntu/' >/etc/apt-cacher-ng/backends_ubuntu
 
